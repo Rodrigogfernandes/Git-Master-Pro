@@ -8,11 +8,11 @@ Uma plataforma interativa de treinamento para dominar Git e GitHub através de t
 
 ## 📋 Sobre
 
-**Git Master Pro** é um aplicativo educacional desenvolvido para ajudar desenvolvedores a aprender comandos Git de forma progressiva e prática. O projeto oferece uma série de 23 níveis com tutoriais teóricos, diagramas ilustrativos com emojis e missões práticas integradas em um terminal simulado.
+**Git Master Pro** é um aplicativo educacional desenvolvido para ajudar desenvolvedores a aprender comandos Git de forma progressiva e prática. O projeto oferece uma série de 42 níveis com tutoriais teóricos, diagramas ilustrativos com emojis e missões práticas integradas em um terminal simulado.
 
 ## 🎯 Funcionalidades
 
-- **23 Níveis Progressivos**: Estrutura completa de Git básico até operações avançadas
+- **42 Níveis Progressivos**: Estrutura completa de Git básico até operações avançadas
 - **Tutoriais Interativos**: Aprenda conceitos de Git passo a passo com explicações detalhadas
 - **Diagramas Ilustrativos**: Diagramas ASCII com emojis que visualizam o fluxo de operações Git
 - **Dicas Úteis**: Cada nível inclui dicas práticas para facilitar o aprendizado
@@ -78,42 +78,61 @@ Depois, abra no navegador: `http://localhost:8000/`
 
 ## 📚 Conteúdo do Treinamento
 
-O projeto cobre 23 níveis progressivos de Git:
+O projeto cobre 42 níveis progressivos de Git:
 
 ### Fundamentos (Níveis 1-5)
 1. **Inicializar (Init)** - Criar um repositório Git
-2. **Status (Status)** - Verificar estado do repositório
-3. **Preparar (Add)** - Adicionar arquivos ao stage
-4. **Commit (Salvar)** - Gravar mudanças permanentemente
-5. **Remover Arquivos (RM)** - Deletar arquivos do repositório
+2. **Configurar Nome (Config Identity - Nome)** - Definir nome do autor
+3. **Configurar Email (Config Identity - Email)** - Definir email do autor
+4. **Clonar (Clone)** - Clonar repositório remoto
+5. **Status (Status)** - Verificar estado do repositório
 
-### Comparação e Análise (Níveis 6-7)
-6. **Diff (Diferenças)** - Ver mudanças entre versões
-7. **Branch (Criar e Trocar)** - Criar branches paralelas
+### Operações Básicas (Níveis 6-11)
+6. **Preparar (Add)** - Adicionar arquivos ao stage
+7. **Commit (Salvar)** - Gravar mudanças permanentemente
+8. **Remover (RM)** - Deletar arquivos do repositório
+9. **Branch (Criar e Trocar)** - Criar branches paralelas
+10. **Checkout/Switch (Mudar de Branch)** - Alternar entre branches
+11. **Listar Branches (branch --list)** - Listar branches disponíveis
 
-### Gerenciamento de Branches (Níveis 8-11)
-8. **Listar Branches** - Listar branches disponíveis
-9. **Ramificação (Branch)** - Criar novas branches
-10. **Fusão (Merge)** - Integrar branches
-11. **Restaurar Arquivo (Restore)** - Desfazer mudanças
+### Gerenciamento de Branches (Níveis 12-17)
+12. **Ramificação (Branch)** - Criar novas branches
+13. **Fusão (Merge)** - Integrar branches
+14. **Diferenças (Diff)** - Ver mudanças entre versões
+15. **Restaurar (Restore)** - Desfazer mudanças
+16. **Reset** - Voltar no tempo
+17. **Stash** - Guardar trabalho temporariamente
 
-### Histórico e Reverter (Níveis 12-14)
-12. **Reset (Voltar no Tempo)** - Reverter commits
-13. **Stash (Guardar Trabalho)** - Salvar mudanças temporárias
-14. **Histórico (Log)** - Visualizar histórico de commits
+### Histórico e Sincronização (Níveis 18-22)
+18. **Histórico (Log)** - Visualizar histórico de commits
+19. **Remote** - Conectar repositório remoto (GitHub)
+20. **Push** - Enviar commits para GitHub
+21. **Pull** - Baixar e integrar mudanças remotas
+22. **Fetch** - Buscar mudanças sem integrar
+23. **Tag** - Marcar versões do projeto
 
-### Operações Remotas (Níveis 15-19)
-15. **Remote (GitHub)** - Conectar repositório remoto
-16. **Enviar (Push)** - Enviar commits para GitHub
-17. **Puxar (Pull)** - Baixar e integrar mudanças remotas
-18. **Clone (Clonar)** - Copiar repositório remoto
-19. **Fetch (Buscar)** - Buscar mudanças sem integrar
+### Operações Avançadas (Níveis 24-31)
+24. **Rebase** - Reorganizar histórico de commits
+25. **Cherry-pick** - Aplicar commits específicos
+26. **Submodules** - Repositórios dentro de repositórios
+27. **Hooks** - Automatizar ações com scripts
+28. **Segurança e Boas Práticas** - Princípios de segurança em Git
+29. **Bisect** - Encontrar commit que quebrou código
+30. **Blame** - Atribuir linhas aos autores
+31. **Reflog** - Recuperar referências perdidas
 
-### Operações Avançadas (Níveis 20-23)
-20. **Tag (Versões)** - Marcar versões do projeto
-21. **Rebase (Reorganizar)** - Reorganizar histórico de commits
-22. **Cherry-pick (Escolher)** - Aplicar commits específicos
-23. **Checkout/Switch** - Mudar de branch
+### Operações Especiais (Níveis 32-42)
+32. **Revert** - Desfazer com novo commit
+33. **Worktree** - Múltiplas áreas de trabalho
+34. **Sparse-checkout** - Checkout parcial
+35. **Subtree** - Incluir repositório como subtree
+36. **Git LFS** - Large File Storage para arquivos grandes
+37. **Amend** - Corrigir último commit
+38. **Clean** - Limpar arquivos não rastreados
+39. **Show** - Inspecionar objetos Git
+40. **MV** - Mover/Renomear arquivos
+41. **Grep** - Buscar no código
+42. **Alias** - Criar atalhos personalizados
 
 ## 💡 Como Contribuir
 
@@ -149,11 +168,11 @@ Desenvolvido como projeto de estágio com foco em educação em Git e GitHub.
 
 ---
 
-**Versão**: 2.0.0  
+**Versão**: 3.0.0  
 **Última atualização**: Dezembro 2025
 
 **Features Recentes**:
-- ✅ 23 níveis progressivos de Git
+- ✅ 42 níveis progressivos de Git (básico até avançado)
 - ✅ Diagramas com emojis ilustrativos
 - ✅ Navegação interativa entre níveis
 - ✅ Dicas e passos detalhados para cada missão

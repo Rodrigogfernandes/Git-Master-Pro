@@ -67,11 +67,11 @@
 
                 // Definição de grupos e intervalos (ajustável)
                 const groups = [
-                    { name: 'Básico', start: 0, end: 4 },
-                    { name: 'Básico/Intermediário', start: 5, end: 9 },
-                    { name: 'Intermediário', start: 10, end: 13 },
-                    { name: 'Intermediário/Avançado', start: 14, end: 18 },
-                    { name: 'Avançado', start: 19, end: Infinity }
+                    { name: 'Básico', start: 0, end: 8 },
+                    { name: 'Básico/Intermediário', start: 9, end: 13 },
+                    { name: 'Intermediário', start: 14, end: 18 },
+                    { name: 'Intermediário/Avançado', start: 19, end: 22 },
+                    { name: 'Avançado', start: 23, end: Infinity }
                 ];
 
                 levels.forEach((lvl, idx) => {
