@@ -67,9 +67,9 @@
 
                 // Definição de grupos e intervalos (ajustável)
                 const groups = [
-                    { name: 'Básico', start: 0, end: 3 },
-                    { name: 'Básico/Intermediário', start: 4, end: 7 },
-                    { name: 'Intermediário', start: 8, end: 13 },
+                    { name: 'Básico', start: 0, end: 4 },
+                    { name: 'Básico/Intermediário', start: 5, end: 9 },
+                    { name: 'Intermediário', start: 10, end: 13 },
                     { name: 'Intermediário/Avançado', start: 14, end: 17 },
                     { name: 'Avançado', start: 18, end: Infinity }
                 ];
