@@ -1,0 +1,417 @@
+[
+  {
+    "id": 0,
+    "title": "1. Inicializar (Init)",
+    "tutorial": {
+      "desc": "Todo projeto Git começa com `git init`. Esse comando cria a infraestrutura necessária (a pasta oculta .git) que armazena todo o histórico do seu projeto. É o primeiro passo para começar a usar controle de versão.",
+      "detailed": "Quando você executa `git init`, Git cria um novo repositório local. Isso inclui arquivos de configuração, hooks e histórico de commits. A pasta .git é onde tudo é armazenado.",
+      "tips": "Execute este comando uma única vez por projeto. Não precisa executar dentro de repositórios já criados.",
+      "diagram": "📁 Pasta do Projeto\n    ↓\n⚙️ git init\n    ↓\n📂 .git/ criado — repositório inicializado",
+      "example": "git init"
+    },
+    "mission": {
+      "desc": "Você está na pasta do seu novo projeto. Transforme-a em um repositório Git.",
+      "goal": "Digite o comando para inicializar o repositório.",
+      "steps": ["1. Abra o terminal", "2. Navegue até a pasta do projeto", "3. Digite: git init", "4. Pressione Enter"],
+      "expected": "git init",
+      "success": "Repositório inicializado com sucesso em /projeto/.git"
+    }
+  },
+  {
+    "id": 1,
+    "title": "2. Status (Status)",
+    "tutorial": {
+      "desc": "`git status` é seu melhor amigo! Ele mostra o estado atual do repositório: quais arquivos foram modificados, quais estão preparados para commit (staged) e quais ainda não foram rastreados.",
+      "detailed": "Este comando fornece informações sobre: (1) Arquivos não rastreados - novos arquivos que Git não conhece, (2) Mudanças não preparadas - arquivos modificados mas não adicionados ao stage, (3) Mudanças preparadas - arquivos prontos para serem commitados.",
+      "tips": "Execute este comando frequentemente para acompanhar o estado do seu trabalho. Use `git status -s` para uma versão mais compacta.",
+      "diagram": "📝 Modificar arquivo\n    ↓\n🔎 git status\n    ↓\nMostra: M (modified), A (added), ?? (untracked)",
+      "example": "git status"
+    },
+    "mission": {
+      "desc": "Veja o estado atual do seu repositório e entenda quais arquivos foram alterados.",
+      "goal": "Use o comando para verificar o status do repositório.",
+      "steps": ["1. Digite: git status", "2. Observe quais arquivos estão modificados", "3. Entenda o significado das cores/marcas"],
+      "expected": "git status",
+      "success": "Status listado com sucesso."
+    }
+  },
+  {
+    "id": 2,
+    "title": "3. Preparar (Add)",
+    "tutorial": {
+      "desc": "Use `git add` para colocar arquivos na área de stage (preparação). O stage é uma área intermediária entre seu workspace (pasta de trabalho) e seu commit (salvamento permanente).",
+      "detailed": "O comando `git add` marca os arquivos que você quer incluir no próximo commit. Você pode adicionar arquivos específicos ou todos os arquivos de uma vez. O stage permite revisar o que será commitado antes de tornar permanente.",
+      "tips": "Use `git add .` para adicionar todos os arquivos modificados, ou `git add arquivo.txt` para um arquivo específico. `git add -p` permite revisar cada mudança antes de adicionar.",
+      "diagram": "💻 Working Directory (modificações)\n    ↓\n➕ git add\n    ↓\n🗂️ Staging Area (preparado)\n    ↓\n✅ git commit\n    ↓\n📦 Repository (permanente)",
+      "example": "git add arquivo.txt\nou\ngit add .\nou\ngit add -u"
+    },
+    "mission": {
+      "desc": "Adicione arquivos modificados à área de stage para prepará-los para o commit.",
+      "goal": "Adicione o arquivo style.css ao stage.",
+      "steps": ["1. Modifique o arquivo style.css", "2. Digite: git add style.css", "3. Verifique com: git status"],
+      "expected": "git add style.css",
+      "success": "Arquivo adicionado ao stage com sucesso!"
+    }
+  },
+  {
+    "id": 3,
+    "title": "4. Commit (Salvar)",
+    "tutorial": {
+      "desc": "`git commit` grava permanentemente as mudanças preparadas (staged) no repositório. É como um ponto de salvamento do seu projeto com uma mensagem descritiva.",
+      "detailed": "Todo commit cria um snapshot do seu projeto naquele momento. É essencial escrever mensagens claras e descritivas para que você (e outros) entendam o que foi alterado. Um bom commit descreve 'por quê' a mudança foi feita, não apenas 'o quê'.",
+      "tips": "Mensagens de commit devem ser concisas mas descritivas. Use `git commit -m` para mensagens curtas ou `git commit` para um editor abrir mensagens mais longas. Evite commits genéricos como 'alterações'.",
+      "diagram": "🗂️ Staging Area (preparado)\n    ↓\n📝 git commit -m \"mensagem\"\n    ↓\n📌 Commit criado\n    ↓\n📜 Histórico do Git (permanente)",
+      "example": "git commit -m \"Adiciona estilos iniciais CSS\"\nou\ngit commit -am \"Atualiza estilos\""
+    },
+    "mission": {
+      "desc": "Faça um commit dos arquivos que estão na área de stage com uma mensagem descritiva.",
+      "goal": "Commit com mensagem clara descrevendo as mudanças.",
+      "steps": ["1. Tenha arquivos no stage (use git add)", "2. Digite: git commit -m \"estilos iniciais\"", "3. Verifique o histórico: git log"],
+      "expected": "git commit -m \"estilos iniciais\"",
+      "success": "Commit criado e salvo permanentemente!"
+    }
+  },
+  {
+    "id": 4,
+    "title": "5. Remover Arquivos (RM)",
+    "tutorial": {
+      "desc": "`git rm` remove permanentemente um arquivo do repositório e do seu disco. É diferente de apenas deletar o arquivo - Git registra a remoção como uma alteração que pode ser commitada.",
+      "detailed": "Existem três formas de lidar com arquivos: (1) `git rm` - remove do Git e do disco, (2) `git rm --cached` - remove do Git mas mantém no disco, (3) Deletar manualmente - Git detecta como modificação. Sempre use `git rm` para manter o histórico consistente.",
+      "tips": "Não delete arquivos manualmente e depois commit. Use `git rm` para que Git registre a remoção. Use `git rm -r` para remover diretórios.",
+      "diagram": "📄 Arquivo no repositório\n    ↓\n🗑️ git rm arquivo\n    ↓\n⚠️ Arquivo marcado para remoção\n    ↓\n✅ git commit\n    ↓\n🧾 Remoção registrada no histórico",
+      "example": "git rm arquivo.txt\nou\ngit rm -r pasta/\nou\ngit rm --cached arquivo.txt"
+    },
+    "mission": {
+      "desc": "Remova um arquivo indesejado do repositório registrando a exclusão no Git.",
+      "goal": "Remova o arquivo lixo.tmp do repositório.",
+      "steps": ["1. Identifique o arquivo a remover", "2. Digite: git rm lixo.tmp", "3. Commit a remoção: git commit -m \"Remove arquivo temporário\""],
+      "expected": "git rm lixo.tmp",
+      "success": "Arquivo removido e remoção registrada no Git!"
+    }
+  },
+  {
+    "id": 5,
+    "title": "6. Diff (Diferenças)",
+    "tutorial": {
+      "desc": "`git diff` mostra as mudanças exatas entre sua versão atual e a versão anterior. Você pode ver linha por linha o que foi alterado, removido ou adicionado.",
+      "detailed": "O `git diff` compara o working directory com o stage. Use `git diff --staged` para ver mudanças já no stage. Use `git diff HEAD` para comparar com o último commit. Linhas com '-' foram removidas, linhas com '+' foram adicionadas.",
+      "tips": "Use `git diff | head -50` para ver apenas as primeiras 50 linhas. Use `git diff arquivo.txt` para ver diferenças de um arquivo específico. Muito útil antes de fazer commit para revisar exatamente o que você mudou.",
+      "diagram": "📦 Última versão commitada\n    ↓ (diferença)\n💻 Versão atual no working dir\n\ngit diff mostra:\n  - Linhas removidas (com -)\n  + Linhas adicionadas (com +)",
+      "example": "git diff\nou\ngit diff --staged\nou\ngit diff arquivo.txt"
+    },
+    "mission": {
+      "desc": "Visualize as mudanças exatas feitas em um arquivo usando diff.",
+      "goal": "Veja as diferenças entre a versão anterior e a atual.",
+      "steps": ["1. Modifique o arquivo style.css", "2. Digite: git diff style.css", "3. Revise as linhas adicionadas (+) e removidas (-)"],
+      "expected": "git diff",
+      "success": "Diferenças exibidas com sucesso!"
+    }
+  },
+  {
+    "id": 6,
+    "title": "7. Branch (Criar e Trocar)",
+    "tutorial": {
+      "desc": "Branches são versões paralelas do seu código. `git checkout -b` cria uma nova branch e já muda para ela. Isso permite trabalhar em novas features sem afetar a branch principal (master/main).",
+      "detailed": "Uma branch é um ponteiro para um commit específico. Ao criar uma branch, você cria um linha de desenvolvimento independente. Isso é essencial em times: cada pessoa trabalha em sua branch, depois faz merge na principal. As branches são muito leves e baratas de criar.",
+      "tips": "Nome de branches em minúsculas com hífens (feature-login, bugfix-crash). Use `git branch -a` para ver todas as branches. A branch atual tem um asterisco (*). Sempre faça commit antes de trocar de branch.",
+      "diagram": "🌳 Master (principal)\n    |\n    +--- ✨ nova-feature (branch paralela)\n    |        |\n    |        +--- 🔢 commit 1\n    |        |\n    |        +--- 🔢 commit 2\n    |\n    +--- 🔢 commit no master",
+      "example": "git checkout -b nova-feature\nou\ngit switch -c nova-feature\nou\ngit branch nova-feature && git checkout nova-feature"
+    },
+    "mission": {
+      "desc": "Crie uma nova branch paralela para trabalhar em uma funcionalidade sem afetar a branch principal.",
+      "goal": "Crie e mude para a branch 'login'.",
+      "steps": ["1. Digite: git checkout -b login", "2. Verifique: git branch (verá * login)", "3. Trabalhe na branch", "4. Para voltar: git checkout master"],
+      "expected": "git checkout -b login ou git switch -c login",
+      "success": "Branch login criada e ativada com sucesso!"
+    }
+  },
+  {
+    "id": 7,
+    "title": "8. Listar Branches (branch --list)",
+    "tutorial": {
+      "desc": "`git branch` lista todas as branches locais. O `-a` flag mostra também as branches remotas. A branch atual é marcada com um asterisco (*).",
+      "detailed": "Cada repositório pode ter múltiplas branches. `git branch` lista apenas locais, `git branch -a` lista locais e remotas, `git branch -r` lista apenas remotas. Você pode deletar branches com `git branch -d` ou forçar com `-D`.",
+      "tips": "Mantenha suas branches organizadas. Delete branches antigas e sem uso. Use `git branch -v` para ver o último commit de cada branch. Use `git branch -m` para renomear uma branch.",
+      "diagram": "📁 Repositório Local\n  ├── master (branch principal)\n  ├── login (sua branch)\n  ├── feature-cart (outra branch)\n  └── bugfix-crash (mais uma)\n\n* login (você está aqui)",
+      "example": "git branch\nou\ngit branch -a\nou\ngit branch -v"
+    },
+    "mission": {
+      "desc": "Liste todas as branches disponíveis e entenda a estrutura do repositório.",
+      "goal": "Execute o comando para ver todas as branches.",
+      "steps": ["1. Digite: git branch -a", "2. Observe a lista de branches", "3. A * indica sua branch atual"],
+      "expected": "git branch",
+      "success": "Branches listadas com sucesso!"
+    }
+  },
+  {
+    "id": 8,
+    "title": "9. Ramificação (Branch)",
+    "tutorial": {
+      "desc": "Crie branches de desenvolvimento sem afetar a versão principal. Cada branch pode ter sua própria série de commits, permitindo desenvolvimento paralelo e organizado.",
+      "detailed": "Branches são cruciais para desenvolvimento em equipe. Cada desenvolvedor cria sua branch para uma feature ou correção, trabalha independentemente, e depois integra (merge) na branch principal. Isso mantém a branch master/main sempre funcional.",
+      "tips": "Nomeie branches descritivamente: feature-autenticacao, bugfix-login-erro, hotfix-performance. Crie uma branch por feature/correção. Não trabalhe diretamente na master em projetos colaborativos.",
+      "diagram": "🌳 Master (versão estável)\n    ↓\n➕ Criar branch\n    ↓\n💻 Trabalhar na branch\n    ↓\n🔀 Merge na master",
+      "example": "git branch nova-feature\n\nPara trocar:\ngit checkout nova-feature"
+    },
+    "mission": {
+      "desc": "Crie uma nova branch para trabalhar em uma funcionalidade específica.",
+      "goal": "Crie a branch 'login' para desenvolvimento da funcionalidade de login.",
+      "steps": ["1. Certifique-se que está na master", "2. Digite: git branch login", "3. Troque para a branch: git checkout login"],
+      "expected": "git branch login",
+      "success": "Branch login criada com sucesso!"
+    }
+  },
+  {
+    "id": 9,
+    "title": "10. Fusão (Merge)",
+    "tutorial": {
+      "desc": "`git merge` integra mudanças de uma branch para outra. Tipicamente, você faz merge de uma feature-branch de volta para a master após terminar o trabalho.",
+      "detailed": "Merge combina o histórico de duas branches. O Git encontra um commit comum e aplica as mudanças. Em casos sem conflitos, é automático. Com conflitos (mesmas linhas modificadas), você precisa resolvê-los manualmente.",
+      "tips": "Sempre faça merge na branch correta. Primeiro troque para a branch de destino (geralmente master), depois faça merge. Revise os commits antes de fazer merge. Use `git merge --no-ff` para criar um commit de merge mesmo sem conflitos.",
+      "diagram": "✨ Feature Branch          🌳 Master Branch\n    |                    |\n    +-- 🔢 commit 1         |\n    |                    |\n    +-- 🔢 commit 2         |\n    |                    |\n    +-- (HEAD)      git merge feature\n         |              ↓\n         └─────────────→ (traz commits 1 e 2)",
+      "example": "git merge login\nou\ngit merge --no-ff login\nou\ngit merge -m \"Merge feature login\" login"
+    },
+    "mission": {
+      "desc": "Integre as mudanças de uma branch de volta para a master após terminar o desenvolvimento.",
+      "goal": "Faça merge da branch 'login' para a master.",
+      "steps": ["1. Primeiro volte para master: git checkout master", "2. Digite: git merge login", "3. Resolva conflitos se houver", "4. Verifique: git log"],
+      "expected": "git checkout master",
+      "success": "Merge realizado com sucesso! Branch integrada na master!"
+    }
+  },
+  {
+    "id": 10,
+    "title": "11. Restaurar Arquivo (Restore)",
+    "tutorial": {
+      "desc": "`git restore` desfaz alterações em um arquivo específico. É útil quando você faz mudanças mas quer descartar tudo e voltar à versão anterior.",
+      "detailed": "Existem três escopos: (1) `git restore arquivo` - desfaz mudanças no working directory, (2) `git restore --staged arquivo` - remove arquivo do stage mas mantém as mudanças localmente, (3) `git restore HEAD~1 arquivo` - restaura versão de um commit anterior.",
+      "tips": "Use com cuidado! `git restore` descarta mudanças permanentemente. Se não tiver commitado, as mudanças são perdidas. Use `git checkout --` para restaurar (sintaxe antiga) ou `git restore` (sintaxe nova).",
+      "diagram": "✏️ Arquivo modificado (não commitado)\n    ↓\n🛠️ git restore arquivo.txt\n    ↓\n📄 Arquivo volta ao estado anterior\n    ↓\n❌ Mudanças descartadas",
+      "example": "git restore arquivo.txt\nou\ngit restore --staged arquivo.txt\nou\ngit restore --source=HEAD~1 arquivo.txt"
+    },
+    "mission": {
+      "desc": "Desfaça mudanças em um arquivo que foi acidentalmente modificado.",
+      "goal": "Restaure o arquivo index.html para seu estado anterior.",
+      "steps": ["1. Verifique o estado: git status", "2. Digite: git restore index.html", "3. Confirme: git status (arquivo restaurado)"],
+      "expected": "git restore index.html",
+      "success": "Alterações desfeitas com sucesso!"
+    }
+  },
+  {
+    "id": 11,
+    "title": "12. Reset (Voltar no Tempo)",
+    "tutorial": {
+      "desc": "`git reset` move o ponteiro HEAD para um commit anterior e pode alterar o stage e o working directory. Use com cuidado - é uma operação poderosa!",
+      "detailed": "Três modos de reset: (1) `--soft` - move HEAD, mantém mudanças no stage, (2) `--mixed` (padrão) - move HEAD e remove do stage, (3) `--hard` - move HEAD, descarta tudo. HEAD~1 significa 1 commit antes, HEAD~3 significa 3 commits antes.",
+      "tips": "Use `git reset --soft HEAD~1` para desfazer o último commit mas manter as mudanças. Use `--hard` com cuidado! Mudanças são perdidas. Nunca use reset em commits já enviados (push) para repositórios compartilhados.",
+      "diagram": "⏪ Commit 3 (HEAD)\n    ↓\n🔁 git reset --hard HEAD~1\n    ↓\n⏹️ Commit 2 (novo HEAD)\n🗑️ Commit 3 é removido",
+      "example": "git reset --soft HEAD~1\nou\ngit reset HEAD\nou\ngit reset --hard HEAD~1"
+    },
+    "mission": {
+      "desc": "Volte 1 commit no tempo, desfazendo o último commit.",
+      "goal": "Use git reset para desfazer o último commit.",
+      "steps": ["1. Verifique o histórico: git log", "2. Digite: git reset --hard HEAD~1", "3. Confirme: git log (último commit removido)"],
+      "expected": "git reset --hard HEAD~1",
+      "success": "Repositório revertido um commit para trás!"
+    }
+  },
+  {
+    "id": 12,
+    "title": "13. Stash (Guardar Trabalho)",
+    "tutorial": {
+      "desc": "`git stash` guarda temporariamente suas mudanças sem fazer commit. É como colocar seu trabalho em uma prateleira para retomar depois.",
+      "detailed": "Stash é útil quando: (1) precisa trocar de branch urgentemente mas não terminou o trabalho, (2) quer voltar ao estado limpo do repositório, (3) tem conflitos ao fazer pull. Use `git stash list` para ver stashes salvos, `git stash pop` para recuperar, `git stash drop` para deletar.",
+      "tips": "Stash é temporário! Use `git stash save 'descrição'` para descrever o stash. Use `git stash apply` para aplicar sem remover. Use `git stash pop` para aplicar e remover. Não deixe stashes guardados por muito tempo.",
+      "diagram": "🧰 Mudanças em progresso\n    ↓\n📥 git stash\n    ↓\n📦 Mudanças guardadas (workspace limpo)\n    ↓\nFaz outra coisa\n    ↓\n📤 git stash pop\n    ↓\n♻️ Mudanças recuperadas",
+      "example": "git stash\nou\ngit stash save 'feature login em progresso'\nou\ngit stash list\nou\ngit stash pop"
+    },
+    "mission": {
+      "desc": "Guarde temporariamente mudanças em progresso para fazer outra coisa.",
+      "goal": "Use stash para guardar alterações temporárias.",
+      "steps": ["1. Faça mudanças em um arquivo", "2. Digite: git stash", "3. Verifique: git status (workspace limpo)", "4. Recupere: git stash pop"],
+      "expected": "git stash",
+      "success": "Alterações guardadas e recuperáveis a qualquer momento!"
+    }
+  },
+  {
+    "id": 13,
+    "title": "14. Histórico (Log)",
+    "tutorial": {
+      "desc": "`git log` lista o histórico de todos os commits. Você pode ver quem fez cada mudança, quando, e qual mensagem foi deixada.",
+      "detailed": "O log mostra: commit hash (identificador único), autor, data, e mensagem. Use `git log --oneline` para versão compacta, `git log --graph` para ver branches visualmente, `git log --all` para ver todas as branches. Você pode filtrar por autor, data, ou mensagem.",
+      "tips": "Use `git log --oneline --graph --all --decorate` para uma visão completa. Use `git log -p` para ver as mudanças de cada commit. Use `git log -p -S 'texto'` para encontrar quando um texto foi adicionado/removido.",
+      "diagram": "🔎 commit abc123 (HEAD)\nAutor: João\nData: 2 dec 2025\nMensagem: Adiciona login\n    ↓\n🔎 commit def456\nAutor: Maria\nData: 1 dec 2025\nMensagem: Inicia projeto\n    ↓\n🏁 (início do repositório)",
+      "example": "git log\nou\ngit log --oneline\nou\ngit log --oneline --graph --all"
+    },
+    "mission": {
+      "desc": "Explore o histórico de commits do projeto.",
+      "goal": "Visualize todos os commits e entenda o fluxo de desenvolvimento.",
+      "steps": ["1. Digite: git log", "2. Veja hash, autor, data e mensagem", "3. Para visão compacta: git log --oneline", "4. Pressione 'q' para sair"],
+      "expected": "git log",
+      "success": "Histórico de commits exibido com sucesso!"
+    }
+  },
+  {
+    "id": 14,
+    "title": "15. Remote (GitHub)",
+    "tutorial": {
+      "desc": "`git remote` gerencia conexões com repositórios remotos (como GitHub). Você usa isso para enviar (push) e receber (pull) código de servidores.",
+      "detailed": "Um repositório pode ter múltiplos remotes. 'origin' é o nome padrão para o repositório remoto principal. Use `git remote -v` para ver as URLs. Use `git remote add nome url` para adicionar novos remotes. Cada remote precisa de URL válida.",
+      "tips": "A URL pode ser HTTPS ou SSH. HTTPS é mais fácil para começar, SSH é mais seguro. Use `git remote set-url origin nova-url` para alterar URL existente. Sempre configure origin antes de fazer push.",
+      "diagram": "📁 Repositório Local\n        ↓\n🔗 git remote add origin URL\n        ↓\n🌐 Conexão com GitHub\n        ↓\n🔼 Possibilita push/pull",
+      "example": "git remote add origin https://github.com/user/repo.git\nou\ngit remote -v\nou\ngit remote set-url origin nova-url"
+    },
+    "mission": {
+      "desc": "Configure a conexão com um repositório remoto (como GitHub).",
+      "goal": "Adicione o remote origin com a URL do repositório.",
+      "steps": ["1. Acesse seu repositório no GitHub", "2. Copie a URL HTTPS", "3. Digite: git remote add origin URL", "4. Verifique: git remote -v"],
+      "expected": "git remote add origin https://github.com/meu/site.git",
+      "success": "Remote origin configurado com sucesso!"
+    }
+  },
+  {
+    "id": 15,
+    "title": "16. Enviar (Push)",
+    "tutorial": {
+      "desc": "`git push` envia seus commits locais para o repositório remoto (GitHub). É como fazer upload do seu trabalho para que outros possam acessar.",
+      "detailed": "Push atualiza a branch remota com seus commits locais. Use `git push origin master` para enviar a branch master. Use `git push -u origin master` (primeira vez) para configurar rastreamento. Você precisa ter permissão no repositório para fazer push.",
+      "tips": "Sempre faça commit antes de push. Sempre pull antes de push (para evitar conflitos). Use `git push -f` com cuidado (força reescrita do histórico). Em repositórios compartilhados, nunca use `-f`!",
+      "diagram": "📦 Commits locais\n    ↓\n📤 git push -u origin master\n    ↓\n📡 Dados são enviados\n    ↓\n🌐 Repositório remoto (GitHub)\n    ↓\n👥 Outros podem acessar",
+      "example": "git push origin master\nou\ngit push -u origin master (primeira vez)\nou\ngit push"
+    },
+    "mission": {
+      "desc": "Envie seus commits locais para o repositório remoto no GitHub.",
+      "goal": "Faça push da branch master para o repositório remoto.",
+      "steps": ["1. Tenha commits a enviar", "2. Digite: git push -u origin master", "3. Insira credenciais se solicitado", "4. Verifique no GitHub (commits aparecerão online)"],
+      "expected": "git push -u origin master",
+      "success": "Push concluído! Seu código está no GitHub!"
+    }
+  },
+  {
+    "id": 16,
+    "title": "17. Puxar (Pull)",
+    "tutorial": {
+      "desc": "`git pull` baixa e integra (merge) mudanças do repositório remoto. É essencial quando trabalhando com outros - garante que você tem a versão mais recente.",
+      "detailed": "Pull = Fetch + Merge. Primeiro busca as mudanças (`fetch`), depois integra (`merge`) automaticamente. Se houver conflitos, você precisa resolvê-los. Sempre pull antes de fazer push para evitar rejeições.",
+      "tips": "Use `git pull` frequentemente. Se houver conflitos, resolva-os manualmente. Use `git pull --rebase` para uma história mais limpa (cuidado se não entende bem). Sempre commit antes de pull.",
+      "diagram": "🌐 Repositório Remoto (GitHub)\n    ↓ (mudanças)\n⬇️ git pull\n    ↓\n🔍 Busca mudanças (fetch)\n    ↓\n🔀 Integra (merge)\n    ↓\n📁 Repositório Local atualizado",
+      "example": "git pull\nou\ngit pull origin master\nou\ngit pull --rebase"
+    },
+    "mission": {
+      "desc": "Baixe e integre as mudanças do repositório remoto.",
+      "goal": "Puxe (pull) as atualizações do GitHub.",
+      "steps": ["1. Certifique-se que está na branch correta", "2. Digite: git pull origin master", "3. Resolva conflitos se houver", "4. Verifique se recebeu as mudanças"],
+      "expected": "git pull origin master",
+      "success": "Atualizações puxadas e integradas com sucesso!"
+    }
+  },
+  {
+    "id": 17,
+    "title": "18. Clona o repositório (Clone)",
+    "tutorial": {
+      "desc": "`git clone` copia um repositório remoto completamente para sua máquina. É usado para baixar projetos existentes ou começar a colaborar.",
+      "detailed": "Clone faz download de todo o histórico, branches e configurações. Cria uma pasta com o nome do projeto. Configura automaticamente 'origin' apontando para o repositório remoto. Você fica pronto para trabalhar imediatamente.",
+      "tips": "Clone cria uma cópia completa - nenhuma permissão especial necessária para projetos públicos. Você pode clonar quantos repositórios quiser. Clone cria uma pasta, então execute em um diretório pai.",
+      "diagram": "🌐 Repositório no GitHub\n        ↓\n⬇️ git clone URL\n        ↓\n📥 Download completo\n    (histórico, branches, configs)\n        ↓\n📁 Repositório Local (pronto para usar)",
+      "example": "git clone https://github.com/user/repositorio.git\nou\ngit clone git@github.com:user/repo.git"
+    },
+    "mission": {
+      "desc": "Clone um repositório remoto para sua máquina local.",
+      "goal": "Clone o repositório usando a URL fornecida.",
+      "steps": ["1. Copie a URL do repositório no GitHub", "2. Digite: git clone URL", "3. Aguarde o download", "4. Acesse a pasta: cd nome-do-repo"],
+      "expected": "git clone https://github.com/user/repositorio.git",
+      "success": "Repositório clonado com sucesso!"
+    }
+  },
+  {
+    "id": 18,
+    "title": "19. Fetch (Buscar sem mesclar)",
+    "tutorial": {
+      "desc": "`git fetch` busca atualizações do repositório remoto SEM aplicá-las. É como verificar se há atualizações sem instalá-las automaticamente.",
+      "detailed": "Fetch atualiza referências remotas (tracking branches) mas não altera seu working directory. Permite revisar mudanças antes de fazer merge. Use `git fetch origin` para buscar de um remote específico. Use `git fetch --all` para todos os remotes.",
+      "tips": "Fetch é seguro - nunca altera seu código. Use antes de pull para revisar mudanças. Use `git fetch origin && git diff origin/master` para ver o que vai entrar. Ótimo para equipes - vê trabalho de colegas sem afetar seu código.",
+      "diagram": "🌐 Repositório Remoto (GitHub)\n        ↓\n🔄 git fetch\n        ↓\n📥 Download de mudanças\n(tracking branches atualizadas)\n        ↓\n⚖️ Seu código não é alterado\n    (você revisa depois)",
+      "example": "git fetch origin\nou\ngit fetch --all\nou\ngit fetch origin master"
+    },
+    "mission": {
+      "desc": "Busque atualizações do repositório remoto sem aplicá-las automaticamente.",
+      "goal": "Use fetch para verificar mudanças disponíveis.",
+      "steps": ["1. Digite: git fetch origin master", "2. Revise as mudanças: git diff origin/master", "3. Se quiser integrar: git merge origin/master"],
+      "expected": "git fetch origin master",
+      "success": "Atualizações buscadas com sucesso!"
+    }
+  },
+  {
+    "id": 19,
+    "title": "20. Tag (Versões)",
+    "tutorial": {
+      "desc": "`git tag` cria marcações permanentes de versões importantes do seu projeto. Tags marcam pontos significativos como releases (v1.0, v2.0).",
+      "detailed": "Existem dois tipos: (1) lightweight - apenas um ponteiro para commit, (2) annotated - contém metadados (autor, data, mensagem). Use tags para marcar versões, releases, milestones. Tags não se movem ao fazer novos commits.",
+      "tips": "Use nomes semânticos: v1.0.0, v1.0.1, v2.0.0. Use `git tag -l` para listar. Use `git tag -d` para deletar local. Use `git push origin v1.0.0` para enviar tag. Sempre marque releases importantes.",
+      "diagram": "🏷️ commit abc - v0.9.0 (beta)\n    ↓\n🔢 commit def\n    ↓\n🏁 commit ghi - v1.0.0 (release)\n    ↓\n🔧 commit jkl - v1.0.1 (hotfix)\n    ↓\n✨ commit mno - v2.0.0 (nova versão)",
+      "example": "git tag v1.0.0\nou\ngit tag -a v1.0.0 -m \"Versão 1.0.0 - Release\"\nou\ngit push origin v1.0.0"
+    },
+    "mission": {
+      "desc": "Crie uma tag para marcar uma versão importante do seu projeto.",
+      "goal": "Crie a tag v1.0.0 para o commit atual.",
+      "steps": ["1. Certifique-se de estar no commit correto", "2. Digite: git tag v1.0.0", "3. Verifique: git tag -l", "4. Envie: git push origin v1.0.0"],
+      "expected": "git tag v1.0.0",
+      "success": "Tag criada com sucesso!"
+    }
+  },
+  {
+    "id": 20,
+    "title": "21. Rebase (Reorganizar Histórico)",
+    "tutorial": {
+      "desc": "`git rebase` reorganiza a linha do tempo dos commits. Reaplica seus commits sobre uma outra branch. Resulta em um histórico mais limpo e linear.",
+      "detailed": "Rebase é uma alternativa ao merge. Em vez de criar um commit de merge, rebase reaplica seus commits. Útil para manter histórico limpo. Cuidado: rebase reescreve histórico! Nunca faça rebase em commits já enviados (push) para repositórios compartilhados.",
+      "tips": "Use rebase para branches locais. Use merge para branches compartilhadas. `git rebase master` reaplica commits da sua branch sobre master. Se houver conflitos, resolva e continue com `git rebase --continue`. Use `git rebase -i` para reordenar/editar commits.",
+      "diagram": "Antes de Rebase:\nmaster: A - B - C\nfeature:     D - E - F\n\nDepois de 'git rebase master':\nmaster: A - B - C\nfeature:         D' - E' - F'\n(commits replicados)",
+      "example": "git rebase master\nou\ngit rebase -i HEAD~3\nou\ngit rebase --continue (após resolver conflitos)"
+    },
+    "mission": {
+      "desc": "Reorganize seus commits sobre outra branch usando rebase.",
+      "goal": "Faça rebase da sua branch sobre master.",
+      "steps": ["1. Verifique em qual branch está", "2. Digite: git rebase master", "3. Resolva conflitos se houver", "4. Continue: git rebase --continue"],
+      "expected": "git rebase master",
+      "success": "Rebase realizado com sucesso! Histórico reorganizado!"
+    }
+  },
+  {
+    "id": 21,
+    "title": "22. Cherry-pick (Escolher um commit)",
+    "tutorial": {
+      "desc": "`git cherry-pick` copia um commit específico de uma branch para outra. Útil quando você quer uma mudança específica sem fazer merge de toda a branch.",
+      "detailed": "Cherry-pick pega o conteúdo de um commit e o aplica em outro lugar. Cria um novo commit com a mesma mudança. Diferente de merge que traz todos os commits, cherry-pick escolhe quais levar.",
+      "tips": "Use quando: (1) quer uma correção específica, (2) precisa de apenas uma feature de várias, (3) quer evitar conflitos de merge. Se houver conflitos, resolva e continue com `git cherry-pick --continue`. Use commit hash do `git log` para identificar o commit.",
+      "diagram": "Branch A (feature-login):\n  commit 1 (typo fix)\n  commit 2 (auth system)  ← este queremos\n  commit 3 (UI changes)\n\nBranch B (master):\n  commit A\n  commit B\n    ↓\n🔧 git cherry-pick 2\n    ↓\nBranch B (master):\n  commit A\n  commit B\n  commit 2' (auth system - cópia)",
+      "example": "git cherry-pick abc123\nou\ngit cherry-pick abc123 def456 ghi789\nou\ngit cherry-pick --continue (após resolver conflitos)"
+    },
+    "mission": {
+      "desc": "Copie um commit específico de uma branch para outra.",
+      "goal": "Use cherry-pick para aplicar um commit específico.",
+      "steps": ["1. Encontre o hash: git log", "2. Troque para a branch destino", "3. Digite: git cherry-pick hash", "4. Resolva conflitos se necessário"],
+      "expected": "git cherry-pick 123abc",
+      "success": "Commit copiado com sucesso!"
+    }
+  },
+  {
+    "id": 22,
+    "title": "23. Mudar de Branch (Checkout/Switch)",
+    "tutorial": {
+      "desc": "Mude entre branches usando `git checkout` ou `git switch`. Permite trabalhar em diferentes versões do código sem afetar outras branches.",
+      "detailed": "`git checkout branch-name` é o comando clássico. `git switch branch-name` é a sintaxe mais nova (Git 2.23+). Ambos fazem a mesma coisa. O working directory muda para o estado da branch escolhida.",
+      "tips": "Sempre commit ou stash antes de trocar de branch. Use `git switch -c branch-name` para criar e trocar simultaneamente. Use `git switch -` para voltar à branch anterior (como `cd -`). Verifique em qual branch está com `git status` ou `git branch`.",
+      "diagram": "🌳 Branch Master\n    |  \n    |  (git switch feature-login)\n    |  ↓\n    └─→ ✨ Branch Feature-Login\n    \n💻 Working Dir muda\nArquivos refletem a branch",
+      "example": "git switch login\nou\ngit checkout login\nou\ngit switch -c nova-branch\nou\ngit switch -"
+    },
+    "mission": {
+      "desc": "Mude para uma branch diferente.",
+      "goal": "Troque para a branch 'login' de forma segura.",
+      "steps": ["1. Commit ou stash suas mudanças", "2. Verifique branches: git branch", "3. Digite: git switch login ou git checkout login", "4. Confirme: git status (você está em login)"],
+      "expected": "git switch login",
+      "success": "Mudou para a branch login com sucesso!"
+    }
+  }
+]
+

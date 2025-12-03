@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git Master | Treinamento Avançado</title>
+    <link rel="stylesheet" href="src/css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo"><span class="git-icon">&lt;/&gt;</span> Git Master Pro</div>
+        <div id="progress-display">Carregando...</div>
+    </header>
+
+    <div class="container">
+        <aside id="levels-container"></aside>
+
+        <main>
+            <section class="panel" id="main-panel">
+                <div id="tutorial-view">
+                    <h2 id="tut-title">...</h2>
+                    <p class="content-text" id="tut-desc">...</p>
+                    <p class="content-text" id="tut-detailed" style="margin-top:8px;">...</p>
+                    <div class="tips" style="margin-top:8px;">
+                        <strong>Dicas:</strong>
+                        <div id="tut-tips" style="margin-top:6px; opacity:0.9">...</div>
+                    </div>
+                    <div class="code-block">
+                        <span style="opacity:0.5; font-size:0.8em;">Exemplo:</span><br>
+                        <span id="tut-example">...</span>
+                    </div>
+                    <div style="margin-top:10px;">
+                        <pre id="tut-diagram" style="white-space:pre-wrap; background:rgba(255,255,255,0.02); padding:8px; border-radius:4px; font-family:var(--font-mono);">...</pre>
+                    </div>
+                    <div class="actions">
+                        <button class="btn-primary" onclick="startMission()">Praticar Agora</button>
+                        <button class="btn-secondary" onclick="skipTutorial()">Pular</button>
+                    </div>
+                </div>
+
+                <div id="mission-view" class="hidden">
+                    <h2 id="mis-title">...</h2>
+                    <p class="content-text" id="mis-desc">...</p>
+                    <div style="margin-top:10px; padding:10px; background:rgba(255,255,255,0.05); border-radius:4px;">
+                        <strong>Objetivo:</strong> <span id="mis-goal" style="color:var(--accent-color)">...</span>
+                    </div>
+                    <div style="margin-top:8px;">
+                        <strong>Passos:</strong>
+                        <ul id="mis-steps" style="margin-top:6px; padding-left:18px; opacity:0.95"></ul>
+                    </div>
+                    <div class="actions">
+                        <button class="btn-secondary" onclick="showTutorial()">Rever Tutorial</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="terminal" onclick="focusInput()">
+                <div class="terminal-header">
+                    <div class="dot red"></div>
+                    <div class="dot yellow"></div>
+                    <div class="dot green"></div>
+                </div>
+                <div class="terminal-output" id="output">
+                    <div class="line info">Git Master Terminal v2.1 [Connected]</div>
+                    <div class="line info">Digite 'help' para comandos globais.</div>
+                    <div class="line">---</div>
+                </div>
+                <div class="input-line">
+                    <span class="prompt">user@dev:~/projeto$</span>
+                    <input type="text" id="cmd-input" autocomplete="off" spellcheck="false" disabled>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="src/js/script.js"></script>
+</body>
+
+</html>
