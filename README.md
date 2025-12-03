@@ -1,5 +1,6 @@
-# Git Master Pro
-
+<div align="center">
+<h1> Git Master Pro </h1>
+</div>
 <div align="center">
   <img src="src/img/image.png" alt="Git Master Pro" width="400" />
 </div>
