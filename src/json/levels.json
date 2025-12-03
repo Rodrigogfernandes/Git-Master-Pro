@@ -467,5 +467,142 @@
       "success": "Boas práticas de segurança aplicadas!"
     }
   }
+  ,
+  {
+    "id": 26,
+    "title": "27. Bisect (Encontrar commit que quebrou)",
+    "tutorial": {
+      "desc": "`git bisect` ajuda a encontrar o commit que introduziu um bug usando busca binária entre bom e ruim.",
+      "detailed": "Você marca um commit conhecido como 'bad' (onde o bug existe) e um commit 'good' (onde não existe). Git faz checkout automático em commits intermediários para testar até localizar o commit culpado.",
+      "tips": "Automatize testes com `git bisect run <script>` para encontrar o commit sem intervenção manual.",
+      "example": "git bisect start\ngit bisect bad\ngit bisect good v1.0\n# testar, depois: git bisect good|bad\n# ao terminar: git bisect reset"
+    },
+    "mission": {
+      "desc": "Use bisect para localizar o commit que introduziu um erro simples.",
+      "goal": "Identificar o commit culpado entre um ponto bom e um ruim.",
+      "steps": ["1. git bisect start", "2. git bisect bad", "3. git bisect good <tag|hash>", "4. Teste e marque good|bad até encontrar o commit", "5. git bisect reset"],
+      "expected": "git bisect start",
+      "success": "Commit causador identificado com sucesso!"
+    }
+  },
+  {
+    "id": 27,
+    "title": "28. Blame (Atribuir linhas)",
+    "tutorial": {
+      "desc": "`git blame` mostra quem alterou cada linha de um arquivo e em qual commit, útil para entender a autoria de mudanças.",
+      "detailed": "Use `git blame <arquivo>` para ver por linha o autor e o hash do commit. Combine com `-L <start>,<end>` para limitar o range.",
+      "tips": "Use com moderação em arquivos grandes; combine com `git show <hash>` para ver o commit completo.",
+      "example": "git blame src/app.js\ngit blame -L 10,20 src/app.js"
+    },
+    "mission": {
+      "desc": "Identifique o autor de uma linha específica em um arquivo fonte.",
+      "goal": "Encontrar o commit que modificou uma linha problemática.",
+      "steps": ["1. git blame arquivo", "2. Localize a linha e copie o hash", "3. git show <hash> para ver contexto"],
+      "expected": "git blame arquivo",
+      "success": "Autor e commit identificados!"
+    }
+  },
+  {
+    "id": 28,
+    "title": "29. Reflog (Recuperar referências)",
+    "tutorial": {
+      "desc": "`git reflog` registra movimentos de HEAD e permite recuperar commits perdidos após reset, rebase ou outros comandos que reescrevem histórico.",
+      "detailed": "Use `git reflog` para ver a sequência de posições recentes do HEAD. Para recuperar, `git checkout <reflog-hash>` ou `git reset --hard <reflog-hash>`.",
+      "tips": "Reflog é local — não é compartilhado pelo remoto. Útil para recuperar commits órfãos.",
+      "example": "git reflog\n# obter hash\ngit checkout <hash>\n# ou: git reset --hard <hash>"
+    },
+    "mission": {
+      "desc": "Recupere um commit perdido usando reflog.",
+      "goal": "Encontrar um commit recente e voltar para ele.",
+      "steps": ["1. git reflog", "2. Copie hash relevante", "3. git checkout <hash> ou git reset --hard <hash>"],
+      "expected": "git reflog",
+      "success": "Commit recuperado com sucesso!"
+    }
+  },
+  {
+    "id": 29,
+    "title": "30. Revert (Desfazer com commit)",
+    "tutorial": {
+      "desc": "`git revert` cria um novo commit que desfaz as mudanças de um commit anterior sem reescrever histórico, ideal para reverter commits já enviados.",
+      "detailed": "Ao contrário do reset, revert é seguro para branches compartilhadas porque não altera commits existentes — adiciona um novo commit que inverte as alterações selecionadas.",
+      "tips": "Use `git revert -m 1 <merge-commit>` para reverter um merge (escolha o pai correto).",
+      "example": "git revert <hash>\n# editar mensagem e salvar"
+    },
+    "mission": {
+      "desc": "Reverta um commit específico criando um novo commit de reversão.",
+      "goal": "Desfazer mudanças problemáticas sem reescrever histórico.",
+      "steps": ["1. git log --oneline", "2. git revert <hash>", "3. git push origin <branch>"],
+      "expected": "git revert <hash>",
+      "success": "Commit revertido e novo commit criado!"
+    }
+  },
+  {
+    "id": 30,
+    "title": "31. Worktree (Múltiplas áreas de trabalho)",
+    "tutorial": {
+      "desc": "`git worktree` permite ter múltiplas cópias de trabalho do mesmo repositório (branches diferentes) sem clonar novamente o repositório inteiro.",
+      "detailed": "Use `git worktree add <path> <branch>` para criar uma nova worktree em outro diretório. Útil para trabalhar em duas branches simultaneamente (por exemplo, hotfix e desenvolvimento).",
+      "tips": "Remova worktrees desnecessárias com `git worktree remove <path>`. Tenha cuidado ao deletar pastas manualmente.",
+      "example": "git worktree add ../wt-feature feature-branch\ncd ../wt-feature"
+    },
+    "mission": {
+      "desc": "Crie uma worktree para trabalhar em outra branch sem afetar sua cópia atual.",
+      "goal": "Ter duas áreas de trabalho ativas simultaneamente.",
+      "steps": ["1. git worktree add ../wt-feature feature-branch", "2. cd ../wt-feature", "3. Trabalhe normalmente nesta pasta"],
+      "expected": "git worktree add ../wt-feature feature-branch",
+      "success": "Worktree criada e em uso!"
+    }
+  },
+  {
+    "id": 31,
+    "title": "32. Sparse-checkout (Checkout parcial)",
+    "tutorial": {
+      "desc": "Sparse-checkout permite baixar/aplicar apenas subpastas do repositório na sua cópia de trabalho — útil em monorepos grandes.",
+      "detailed": "Ative com `git sparse-checkout init --cone` e selecione paths com `git sparse-checkout set <path>`. Assim o Git mantém apenas esses diretórios no working tree.",
+      "tips": "Funciona melhor em repositórios modernos do Git; combine com worktrees para isolamento de tarefas.",
+      "example": "git sparse-checkout init --cone\ngit sparse-checkout set src/components"
+    },
+    "mission": {
+      "desc": "Configurar sparse-checkout para trabalhar apenas com uma subpasta.",
+      "goal": "Ter apenas `src/` no working tree para economizar espaço/tempo.",
+      "steps": ["1. git sparse-checkout init --cone", "2. git sparse-checkout set src/", "3. Verifique arquivos presentes"],
+      "expected": "git sparse-checkout set src/",
+      "success": "Sparse-checkout configurado com sucesso!"
+    }
+  },
+  {
+    "id": 32,
+    "title": "33. Subtree (Incluir repositório como subtree)",
+    "tutorial": {
+      "desc": "`git subtree` é alternativa a submodules — incorpora o conteúdo de outro repositório dentro de um subdiretório do seu projeto com histórico opcional.",
+      "detailed": "Use `git subtree add --prefix=vendor/lib <repo> master --squash` para importar como subtree. Para atualizar, `git subtree pull --prefix=vendor/lib <repo> master --squash`.",
+      "tips": "Subtree é mais simples de usar em times que não querem lidar com referências independentes; o histórico pode ser 'squashado' para simplicidade.",
+      "example": "git subtree add --prefix=vendor/lib https://github.com/user/lib.git master --squash"
+    },
+    "mission": {
+      "desc": "Adicionar um repositório externo como subtree no diretório `vendor/lib`.",
+      "goal": "Integrar código externo mantendo histórico opcionalmente squashado.",
+      "steps": ["1. git subtree add --prefix=vendor/lib <repo> master --squash", "2. Verifique: ls vendor/lib"],
+      "expected": "git subtree add --prefix=vendor/lib <repo> master --squash",
+      "success": "Subtree adicionada com sucesso!"
+    }
+  },
+  {
+    "id": 33,
+    "title": "34. Git LFS (Large File Storage)",
+    "tutorial": {
+      "desc": "Git LFS gerencia arquivos grandes (imagens, vídeos, binários) armazenando ponteiros no Git e os arquivos reais em um servidor LFS.",
+      "detailed": "Instale com `git lfs install`. Use `git lfs track \"*.psd\"` para marcar padrões, e commite o `.gitattributes`. Em push/pull, o cliente lfs transfere os binários separadamente.",
+      "tips": "Use LFS para arquivos grandes somando espaço e para evitar que o histórico fique inchado. Lembre-se de que o remote precisa suportar LFS (GitHub suporta).",
+      "example": "git lfs install\ngit lfs track \"*.psd\"\ngit add .gitattributes\ngit add *.psd\ngit commit -m \"Add PSDs to LFS\""
+    },
+    "mission": {
+      "desc": "Configurar Git LFS para rastrear arquivos grandes no repositório.",
+      "goal": "Rastrear e commitar arquivos binários usando LFS.",
+      "steps": ["1. git lfs install", "2. git lfs track \"*.psd\"", "3. git add .gitattributes && git add arquivo.psd", "4. git commit -m 'Add LFS'"],
+      "expected": "git lfs track \"*.psd\"",
+      "success": "Arquivos grandes rastreados com Git LFS!"
+    }
+  }
 ]
 

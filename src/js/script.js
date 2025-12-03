@@ -70,8 +70,8 @@
                     { name: 'Básico', start: 0, end: 4 },
                     { name: 'Básico/Intermediário', start: 5, end: 9 },
                     { name: 'Intermediário', start: 10, end: 13 },
-                    { name: 'Intermediário/Avançado', start: 14, end: 17 },
-                    { name: 'Avançado', start: 18, end: Infinity }
+                    { name: 'Intermediário/Avançado', start: 14, end: 18 },
+                    { name: 'Avançado', start: 19, end: Infinity }
                 ];
 
                 levels.forEach((lvl, idx) => {
