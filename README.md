@@ -4,8 +4,20 @@
 <div align="center">
   <img src="src/img/image.png" alt="Git Master Pro" width="400" />
 </div>
+<div align="center">
+<br>
+  
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 
-Uma plataforma interativa de treinamento para dominar Git e GitHub através de tutoriais práticos e missões desafiadoras.
+[![rodrigodev.net](https://img.shields.io/badge/rodrigodev.net-gree?style=for-the-badge&logo=rodrigodev&logoColor=white)](https://www.rodrigodev.net/)
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Rodrigogfernandes)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/rodrigogfernandes/)
+[![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/rodrigogfernandes1/)
+
+</div>
+
 
 ## 📋 Sobre
 
@@ -156,12 +168,19 @@ Encontrou um problema ou tem uma sugestão? Abra uma [issue](../../issues) para 
 Este projeto é de código aberto e disponível sob a licença MIT.
 
 ## 👨‍💻 Autor
+<div align="center">
 
 **Rodrigo Guedes Fernandes**
 
-- 🌐 Site: [rodrigodev.net](https://rodrigodev.net)
-- 💼 GitHub: [@Rodrigogfernandes](https://github.com/Rodrigogfernandes)
-- 💬 LinkedIn: [Rodrigo Fernandes](https://www.linkedin.com/in/rodrigogfernandes/)
+[![rodrigodev.net](https://img.shields.io/badge/rodrigodev.net-gree?style=for-the-badge&logo=rodrigodev&logoColor=white)](https://www.rodrigodev.net/)
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Rodrigogfernandes)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/rodrigogfernandes/)
+[![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/rodrigogfernandes1/)
+
+
+Desenvolvedor Full Stack especializado em tecnologias web modernas.
+
+</div>
 
 ## ✨ Créditos
 
