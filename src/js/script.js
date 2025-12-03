@@ -63,34 +63,54 @@
         }
 
         function renderSidebar() {
-            dom.levels.innerHTML = '';
-            levels.forEach((lvl, idx) => {
-                const el = document.createElement('div');
-                el.className = `level-card ${idx === currentLevel ? 'active' : ''} ${idx < maxLevelReached ? 'completed' : ''}`;
-                el.innerText = lvl.title;
-                el.dataset.idx = idx;
-                el.style.cursor = 'pointer';
-                el.setAttribute('role', 'button');
-                el.setAttribute('tabindex', '0');
-                // Ao clicar em um nível, navega direto para ele
-                el.addEventListener('click', () => {
-                    currentLevel = idx;
-                    // Só permite navegar para níveis já alcançados ou o próximo
-                    if (idx <= maxLevelReached) {
-                        localStorage.setItem('gitMasterLevel_v2', currentLevel);
+                dom.levels.innerHTML = '';
+
+                // Definição de grupos e intervalos (ajustável)
+                const groups = [
+                    { name: 'Básico', start: 0, end: 3 },
+                    { name: 'Básico/Intermediário', start: 4, end: 7 },
+                    { name: 'Intermediário', start: 8, end: 13 },
+                    { name: 'Intermediário/Avançado', start: 14, end: 17 },
+                    { name: 'Avançado', start: 18, end: Infinity }
+                ];
+
+                levels.forEach((lvl, idx) => {
+                    // Inserir separador quando o índice for o início de um grupo
+                    const group = groups.find(g => g.start === idx);
+                    if (group) {
+                        const sep = document.createElement('div');
+                        sep.className = 'level-separator';
+                        sep.innerText = group.name;
+                        dom.levels.appendChild(sep);
                     }
-                    loadLevel(idx);
-                    print(`Navegando para: ${lvl.title}`, 'info');
+
+                    const el = document.createElement('div');
+                    el.className = `level-card ${idx === currentLevel ? 'active' : ''} ${idx < maxLevelReached ? 'completed' : ''}`;
+                    el.innerText = lvl.title;
+                    el.dataset.idx = idx;
+                    el.setAttribute('role', 'button');
+                    el.setAttribute('tabindex', '0');
+                    // tooltip nativo ao passar o mouse
+                    el.title = lvl.title;
+                    // Ao clicar em um nível, navega direto para ele
+                    el.addEventListener('click', () => {
+                        currentLevel = idx;
+                        // Só permite navegar para níveis já alcançados ou o próximo
+                        if (idx <= maxLevelReached) {
+                            localStorage.setItem('gitMasterLevel_v2', currentLevel);
+                        }
+                        loadLevel(idx);
+                        print(`Navegando para: ${lvl.title}`, 'info');
+                    });
+                    // Permitir ativação por Enter/Space
+                    el.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            el.click();
+                        }
+                    });
+                    dom.levels.appendChild(el);
                 });
-                // Permitir ativação por Enter
-                el.addEventListener('keydown', (e) => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                        e.preventDefault();
-                        el.click();
-                    }
-                });
-                dom.levels.appendChild(el);
-            });
         }
 
         function loadLevel(idx) {

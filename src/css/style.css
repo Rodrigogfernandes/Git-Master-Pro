@@ -73,11 +73,29 @@ aside {
   padding: 0.8rem;
   margin-bottom: 0.5rem;
   border-radius: 6px;
-  cursor: default;
+  cursor: pointer;
   font-size: 0.85rem;
   border: 1px solid transparent;
   opacity: 0.5;
   transition: 0.2s;
+}
+
+.level-card:hover {
+  background: rgba(88, 166, 255, 0.12);
+  opacity: 1;
+  transform: translateX(4px);
+  color: var(--text-primary);
+}
+
+.level-separator {
+  padding: 0.45rem 0.6rem;
+  margin: 0.6rem 0;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  border-top: 1px solid #2b3136;
+  border-radius: 4px;
 }
 
 .level-card.active {

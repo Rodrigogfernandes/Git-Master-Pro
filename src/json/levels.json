@@ -19,7 +19,7 @@
   },
   {
     "id": 1,
-    "title": "2. Status (Status)",
+    "title": "2. Status — Verificar estado",
     "tutorial": {
       "desc": "`git status` é seu melhor amigo! Ele mostra o estado atual do repositório: quais arquivos foram modificados, quais estão preparados para commit (staged) e quais ainda não foram rastreados.",
       "detailed": "Este comando fornece informações sobre: (1) Arquivos não rastreados - novos arquivos que Git não conhece, (2) Mudanças não preparadas - arquivos modificados mas não adicionados ao stage, (3) Mudanças preparadas - arquivos prontos para serem commitados.",
@@ -73,7 +73,7 @@
   },
   {
     "id": 4,
-    "title": "5. Remover Arquivos (RM)",
+    "title": "5. RM (Remover Arquivos)",
     "tutorial": {
       "desc": "`git rm` remove permanentemente um arquivo do repositório e do seu disco. É diferente de apenas deletar o arquivo - Git registra a remoção como uma alteração que pode ser commitada.",
       "detailed": "Existem três formas de lidar com arquivos: (1) `git rm` - remove do Git e do disco, (2) `git rm --cached` - remove do Git mas mantém no disco, (3) Deletar manualmente - Git detecta como modificação. Sempre use `git rm` para manter o histórico consistente.",
@@ -127,7 +127,7 @@
   },
   {
     "id": 7,
-    "title": "8. Listar Branches (branch --list)",
+    "title": "8. branch --list (Listar Branches)",
     "tutorial": {
       "desc": "`git branch` lista todas as branches locais. O `-a` flag mostra também as branches remotas. A branch atual é marcada com um asterisco (*).",
       "detailed": "Cada repositório pode ter múltiplas branches. `git branch` lista apenas locais, `git branch -a` lista locais e remotas, `git branch -r` lista apenas remotas. Você pode deletar branches com `git branch -d` ou forçar com `-D`.",
@@ -145,7 +145,7 @@
   },
   {
     "id": 8,
-    "title": "9. Ramificação (Branch)",
+    "title": "9. Branch (Ramificação)",
     "tutorial": {
       "desc": "Crie branches de desenvolvimento sem afetar a versão principal. Cada branch pode ter sua própria série de commits, permitindo desenvolvimento paralelo e organizado.",
       "detailed": "Branches são cruciais para desenvolvimento em equipe. Cada desenvolvedor cria sua branch para uma feature ou correção, trabalha independentemente, e depois integra (merge) na branch principal. Isso mantém a branch master/main sempre funcional.",
@@ -163,7 +163,7 @@
   },
   {
     "id": 9,
-    "title": "10. Fusão (Merge)",
+    "title": "10. Merge (Fusão de Branches)",
     "tutorial": {
       "desc": "`git merge` integra mudanças de uma branch para outra. Tipicamente, você faz merge de uma feature-branch de volta para a master após terminar o trabalho.",
       "detailed": "Merge combina o histórico de duas branches. O Git encontra um commit comum e aplica as mudanças. Em casos sem conflitos, é automático. Com conflitos (mesmas linhas modificadas), você precisa resolvê-los manualmente.",
@@ -181,7 +181,7 @@
   },
   {
     "id": 10,
-    "title": "11. Restaurar Arquivo (Restore)",
+    "title": "11. Restore (Restaurar Arquivos)",
     "tutorial": {
       "desc": "`git restore` desfaz alterações em um arquivo específico. É útil quando você faz mudanças mas quer descartar tudo e voltar à versão anterior.",
       "detailed": "Existem três escopos: (1) `git restore arquivo` - desfaz mudanças no working directory, (2) `git restore --staged arquivo` - remove arquivo do stage mas mantém as mudanças localmente, (3) `git restore HEAD~1 arquivo` - restaura versão de um commit anterior.",
@@ -235,7 +235,7 @@
   },
   {
     "id": 13,
-    "title": "14. Histórico (Log)",
+    "title": "14. Log (Ver Histórico)",
     "tutorial": {
       "desc": "`git log` lista o histórico de todos os commits. Você pode ver quem fez cada mudança, quando, e qual mensagem foi deixada.",
       "detailed": "O log mostra: commit hash (identificador único), autor, data, e mensagem. Use `git log --oneline` para versão compacta, `git log --graph` para ver branches visualmente, `git log --all` para ver todas as branches. Você pode filtrar por autor, data, ou mensagem.",
@@ -253,7 +253,7 @@
   },
   {
     "id": 14,
-    "title": "15. Remote (GitHub)",
+    "title": "15. Remote (GitHub Conexão)",
     "tutorial": {
       "desc": "`git remote` gerencia conexões com repositórios remotos (como GitHub). Você usa isso para enviar (push) e receber (pull) código de servidores.",
       "detailed": "Um repositório pode ter múltiplos remotes. 'origin' é o nome padrão para o repositório remoto principal. Use `git remote -v` para ver as URLs. Use `git remote add nome url` para adicionar novos remotes. Cada remote precisa de URL válida.",
@@ -271,7 +271,7 @@
   },
   {
     "id": 15,
-    "title": "16. Enviar (Push)",
+    "title": "16. Push (Enviar para GitHub)",
     "tutorial": {
       "desc": "`git push` envia seus commits locais para o repositório remoto (GitHub). É como fazer upload do seu trabalho para que outros possam acessar.",
       "detailed": "Push atualiza a branch remota com seus commits locais. Use `git push origin master` para enviar a branch master. Use `git push -u origin master` (primeira vez) para configurar rastreamento. Você precisa ter permissão no repositório para fazer push.",
@@ -289,7 +289,7 @@
   },
   {
     "id": 16,
-    "title": "17. Puxar (Pull)",
+    "title": "17. Pull (Receber do GitHub)",
     "tutorial": {
       "desc": "`git pull` baixa e integra (merge) mudanças do repositório remoto. É essencial quando trabalhando com outros - garante que você tem a versão mais recente.",
       "detailed": "Pull = Fetch + Merge. Primeiro busca as mudanças (`fetch`), depois integra (`merge`) automaticamente. Se houver conflitos, você precisa resolvê-los. Sempre pull antes de fazer push para evitar rejeições.",
@@ -307,7 +307,7 @@
   },
   {
     "id": 17,
-    "title": "18. Clona o repositório (Clone)",
+    "title": "18. Clone (Clonar Repositório)",
     "tutorial": {
       "desc": "`git clone` copia um repositório remoto completamente para sua máquina. É usado para baixar projetos existentes ou começar a colaborar.",
       "detailed": "Clone faz download de todo o histórico, branches e configurações. Cria uma pasta com o nome do projeto. Configura automaticamente 'origin' apontando para o repositório remoto. Você fica pronto para trabalhar imediatamente.",
@@ -397,7 +397,7 @@
   },
   {
     "id": 22,
-    "title": "23. Mudar de Branch (Checkout/Switch)",
+    "title": "23. Checkout/Switch (Mudar de Branch)",
     "tutorial": {
       "desc": "Mude entre branches usando `git checkout` ou `git switch`. Permite trabalhar em diferentes versões do código sem afetar outras branches.",
       "detailed": "`git checkout branch-name` é o comando clássico. `git switch branch-name` é a sintaxe mais nova (Git 2.23+). Ambos fazem a mesma coisa. O working directory muda para o estado da branch escolhida.",
@@ -411,6 +411,60 @@
       "steps": ["1. Commit ou stash suas mudanças", "2. Verifique branches: git branch", "3. Digite: git switch login ou git checkout login", "4. Confirme: git status (você está em login)"],
       "expected": "git switch login",
       "success": "Mudou para a branch login com sucesso!"
+    }
+  },
+  {
+    "id": 23,
+    "title": "24. Hooks (Automatizar ações)",
+    "tutorial": {
+      "desc": "Hooks são scripts que o Git executa automaticamente em eventos (commit, push, merge, etc.). Permitem automatizar verificações, linting, testes e outras ações.",
+      "detailed": "Existem hooks de client-side (pre-commit, commit-msg, post-commit) e server-side (pre-receive, post-receive). Localizados em `.git/hooks/`. Use para aplicar padrões de código e prevenir commits ruins.",
+      "tips": "Faça scripts executáveis (`chmod +x .git/hooks/pre-commit`). Use ferramentas como Husky para gerenciar hooks em equipes. Sempre documente hooks no README do projeto.",
+      "diagram": "⚡ Evento Git (ex: git commit)\n    ↓\n🔍 Hook acionado (.git/hooks/pre-commit)\n    ↓\n✓ Script executado (linting, testes)\n    ↓\n✅ Se OK: commit continua\n❌ Se falhar: commit bloqueado",
+      "example": "#!/bin/sh\necho 'Running pre-commit checks...'\nnpm run lint\nexit $?"
+    },
+    "mission": {
+      "desc": "Conheça hooks e veja onde estão localizados no repositório.",
+      "goal": "Explorar a pasta `.git/hooks` e entender a estrutura.",
+      "steps": ["1. Digite: ls .git/hooks", "2. Examine exemplo: cat .git/hooks/pre-commit.sample", "3. Crie seu hook customizado se necessário"],
+      "expected": "ls .git/hooks",
+      "success": "Hooks explorados com sucesso!"
+    }
+  },
+  {
+    "id": 24,
+    "title": "25. Submodules (Repositórios dentro de repositórios)",
+    "tutorial": {
+      "desc": "Submodules permitem incluir um repositório git dentro de outro. Útil para dependências reutilizáveis ou componentes compartilhados entre projetos.",
+      "detailed": "Um submodule é um referência a um commit específico de outro repositório. Você pode adicionar, atualizar e remover submodules. Cada submodule tem seu próprio histórico e branch.",
+      "tips": "Use submodules para: (1) bibliotecas compartilhadas, (2) componentes reutilizáveis, (3) dependências internas. Cuidado: submodules podem complicar workflows — considere usar npm/pip/maven primeiro.",
+      "diagram": "📦 Repositório Principal\n    ├── src/\n    ├── .gitmodules\n    └── vendor/lib/ (submodule)\n         ↓\n        📦 Repositório externo\n         (versionado independentemente)",
+      "example": "git submodule add https://github.com/user/lib.git vendor/lib\ngit submodule update --init --recursive"
+    },
+    "mission": {
+      "desc": "Aprenda sobre submodules e como adicioná-los a um repositório.",
+      "goal": "Adicionar um submodule exemplo (conceitual).",
+      "steps": ["1. Veja arquivo: cat .gitmodules", "2. Digite: git config --file .gitmodules --list", "3. Explore: ls vendor/ (se houver submodules)"],
+      "expected": "git submodule add <URL> <path>",
+      "success": "Submodules compreendidos!"
+    }
+  },
+  {
+    "id": 25,
+    "title": "26. Segurança e Boas Práticas",
+    "tutorial": {
+      "desc": "Dicas essenciais para manter seu repositório seguro e as práticas recomendadas ao usar Git em equipes e projetos profissionais.",
+      "detailed": "Princípios: (1) Nunca commite secrets (senhas, tokens, chaves), (2) Use `.gitignore` para excluir arquivos locais, (3) Sempre revise diffs antes de commit, (4) Proteja branches principais com políticas, (5) Mantenha histórico limpo e descritivo.",
+      "tips": "Use `git-secrets` para detectar padrões sensíveis. Implemente hooks de pre-commit. Use variáveis de ambiente para secrets. Revise PRs com atenção. Backup regularmente. Use assinatura de commits (git commit -S) em projetos críticos.",
+      "diagram": "🔒 Segurança em Git\n    ├── ✅ .gitignore (excluir secrets)\n    ├── ✅ Pre-commit hooks (validar)\n    ├── ✅ Branch protection (bloquear push direto)\n    ├── ✅ Code review (revisão de PRs)\n    └── ✅ Signed commits (verificação de autoria)",
+      "example": "echo 'node_modules/' >> .gitignore\necho '.env' >> .gitignore\ngit rm --cached secret.txt\ngit commit -m \"Remove arquivo sensível\""
+    },
+    "mission": {
+      "desc": "Aplicar práticas de segurança no repositório.",
+      "goal": "Criar um `.gitignore` robusto e remover arquivos sensíveis.",
+      "steps": ["1. Crie/edite `.gitignore`", "2. Adicione padrões: node_modules/, .env, *.log", "3. Remova arquivo sensível: git rm --cached secret.txt", "4. Commit: git commit -m \"Segurança: adiciona .gitignore\""],
+      "expected": "echo 'node_modules/' >> .gitignore",
+      "success": "Boas práticas de segurança aplicadas!"
     }
   }
 ]
